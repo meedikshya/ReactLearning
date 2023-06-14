@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 
 
@@ -119,6 +120,129 @@ const User = (props) => {
   );
 };
 */
+
+/*
+function App() {
+  const planets = [
+    { name: "Mars", isGasPlanet: false },
+    { name: "Earth", isGasPlanet: false },
+    { name: "Venus", isGasPlanet: true }
+  ];
+
+  return  (
+  <div className='App'>
+
+  {planets.map((planet,key) => {
+    if (planet.isGasPlanet) return  <h1> {planet.name} </h1>;
+  })}
+
+  </div>
+  );
+}*/
+
+//use of states
+
+/*
+function App() {
+
+  const[age, setAge] = useState(0);
+
+  const increaseAge = () => {
+    setAge(age + 1);
+  }
+
+  return(
+    <div className='App'>
+      <h1>{age}</h1>
+      <button onClick={increaseAge}>Increase Age</button>
+    </div>
+  )
+
+}*/
+
+
+//use cases with states
+/*
+function App(){
+  const[inputValue, setInputValue] = useState("");
+
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  }
+
+  return(
+    <div className='App'>
+      <input type='text' onChange={handleInputChange} />
+      {inputValue}
+    </div>
+  )
+}*/
+
+
+
+/*
+function App(){
+
+  const[color, setColor] = useState("black");
+
+  const toggle = () => {
+    setColor(color === "black" ? "red" : "black");
+  }
+
+  return(
+    <div className='App'>
+    <button onClick={toggle}> Change </button>
+     <h1 style={{color: color}}> Hi, asdfghj </h1>
+    </div>
+  )
+}*/
+
+
+//orrrr
+
+/*
+function App(){
+
+  const[color, setColor] = useState("black");
+
+  return(
+    <div className='App'>
+    <button onClick={() => {
+      setColor(color === "black" ? "red" : "black");
+    }}>Show/Hide
+    </button>
+    <h1 style={{color: color}}> Hi, asdfghj </h1>
+    </div>
+  )
+}*/
+
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  const increase = () => {
+    setCount(count + 1);
+  }
+
+  const decrease = () => {
+    setCount(count - 1);
+  }
+
+  const setToZero = () => {
+    setCount(0);
+  }
+
+  return (
+    <div className='App'>
+    <button onClick={increase}>Increase</button>
+    <button onClick={decrease}>Decrease</button>
+    <button onClick={setToZero}>Set To Zero </button>
+    {count}
+    </div>
+
+    
+  )
+}
 
 
 
