@@ -216,7 +216,7 @@ function App(){
   )
 }*/
 
-
+/*
 function App() {
   const [count, setCount] = useState(0);
 
@@ -234,16 +234,63 @@ function App() {
 
   return (
     <div className='App'>
-    <button onClick={increase}>Increase</button>
-    <button onClick={decrease}>Decrease</button>
-    <button onClick={setToZero}>Set To Zero </button>
-    {count}
+      <button onClick={increase}>Increase</button>
+      <button onClick={decrease}>Decrease</button>
+      <button onClick={setToZero}>Set To Zero </button>
+      {count}
     </div>
+  )
+}*/
 
+
+
+
+// TO DO LIST 
+
+function App() {
+  const[todoList, setTodoList] = useState([]);
+  const[newTask, setNewTask] = useState("");
+
+  const handleChange = (event) => { 
+    setNewTask(event.target.value);
+  }
+
+  const addTask = () => {
+    setTodoList([...todoList, newTask]);
+  }
+
+  const deleteTask = (taskName) => {
+    const newToDoList = todoList.filter((task) => {
+      return task !==  taskName
+    });
+    setTodoList(newToDoList);
+  }
+  return (
+    <div className='App'>
+
+      <div className='task'>
+      <input onChange={handleChange} />
+
+      <button onClick={addTask}>Add Task</button>
+
+      </div>
+
+      <div className='list'>
+      {todoList.map((todo) => {
+        return (
+        <div>
+        <h1> {todo}
+        
+         </h1>
+         <button onClick={() => deleteTask(todo)}> x </button>
+        
+        </div>
+        )
+      })}
     
+      </div>
+    </div>
   )
 }
-
-
 
 export default App;
