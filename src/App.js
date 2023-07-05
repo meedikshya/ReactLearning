@@ -4,29 +4,31 @@ import { Home } from "./pages/Home";
 import { Menu } from "./pages/Menu";
 import { Contact } from "./pages/Contact";
 import { Navbar } from "./Navbar";
+import { QueryClient, QueryClientProvider} from "@tanstack/react-query";
 
-//usecontext hook, organised way to handle states
-import { useState, createContext } from "react";
-
-export const AppContext = createContext();
 
 function App() {
-  const [username, setUsername] = useState("Dikshya");
-
+  // eslint-disable-next-line
+  const client = new QueryClient({defaultOptions: {
+    queries : {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
   return (
     <div className="App">
-    <AppContext.Provider value={{ username, setUsername  }}>
+    <QueryClientProvider client={client}>
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home username= {username} />} />
-          <Route path="/menu" element={<Menu username = {username} setUsername={setUsername} />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/menu" element={<Menu />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<h1> PAGE NOT FOUND</h1>} />
         </Routes>
       </Router>
-      </AppContext.Provider>
+      </QueryClientProvider>
     </div>
   );
 }
