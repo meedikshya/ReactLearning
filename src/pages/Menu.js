@@ -1,11 +1,8 @@
-import { ChangeProfile } from "../ChangeProfile";
-import { useContext } from "react";
-import { AppContext } from "../App";
+import { ChangeProfile } from "../components/ChangeProfile";
 
 export const Menu = () => {
 
-  const {username, setUsername } = useContext(AppContext);
-    return <div> THIS IS THE Profile PAGE  ,
-     user is : {username} 
+    return <div> 
+    THIS IS THE Profile PAGE
      <ChangeProfile /></div>;
   };
