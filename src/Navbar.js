@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 export const Navbar = () => {
-  return (
-    <div>
-      <Link to="/"> Home </Link>
-      <Link to="/menu"> Menu </Link>
-      <Link to="/contact"> Contact </Link>
-    </div>
-  );
-};
+    return (
+        <div> 
+        <Link to="/"> home </Link>
+        <Link to="/menu"> menu </Link>
+        <Link to="/contact"> contact </Link>
+        <Link to="/profile">Profile</Link>
+        </div>
+    )
+}
