@@ -1,14 +1,21 @@
+
 import "./App.css";
-import { Form } from "./Form"
+import { Person } from "./components/Person";
+
+function App(){
 
 
-function App() {
   return (
-<div className="App">
-<Form />
-</div>
+    <div className="App">
+<Person
+name = "ram"
+email = "ram12@gmail.com"
+age = {21}
+isMarried = {true}
+friends = {["harry", "pete", "steve"]}
+ />
+    </div>
   )
 }
-
 export default App;
 
